@@ -19,8 +19,6 @@
 
 // Variables compartidas por los hilos
 int dato = 0; /* dato compartido por los hilos */
-int flag[2];  /* 0 es falso y 1 es verdadero */
-int turn;
 
 sem_t s;
 
@@ -74,7 +72,7 @@ int main(int argc, char *argv[])
   /* El parametro que recibo es el valor inicial de dato */
   dato = atoi(argv[1]);
 
-  sem_init(&s, 0, 1); // Permite entrar a 1 proceso
+  sem_init(&s, 0, 2); // Permite entrar a 1 proceso
 
   /* get the default attributes */
   pthread_attr_init(&attr);
@@ -82,7 +80,7 @@ int main(int argc, char *argv[])
   /* crea los hilos */
   for (int i = 0; i < NUM_HILOS; i++)
   {
-    datos[i] = i;
+    datos[i] = i+1;
     pthread_create(&tid[i], &attr, asigna, &datos[i]);
   }
   /* espera a los hilos */

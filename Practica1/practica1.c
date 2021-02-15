@@ -13,6 +13,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define NUM_HILOS 5
+
 int *arr; /* tam compartido por los hilos */
 int tam = 0;
 void *mitad1(); /* hilo 1 */
@@ -95,7 +97,7 @@ void ordenamiento()
   scanf("%d", &tam);
 
   arr = malloc(tam * sizeof(int));
-  printf("\n\nArreglo aleatorio:\n");
+  printf("\nArreglo aleatorio:\n");
   for (int i = 0; i < tam; i++)
   {
     arr[i] = rand() % tam; // Entre 0 y 99
@@ -119,9 +121,8 @@ void ordenamiento()
   pthread_join(tid2, NULL);
   mezcla(arr, 0, tam / 2, tam - 1);
 
-  // Final time
   long end = clock();
-  double t = end-begin;
+  double t = end - begin;
   t = t / ((double)CLOCKS_PER_SEC);
 
   imp(arr, tam);
@@ -135,7 +136,6 @@ void criba()
 
   printf("Ingresa un valor: ");
   scanf("%d", &n);
-  fflush(stdin);
   int primos[n + 1];
   if (n < 2)
   {
@@ -143,6 +143,7 @@ void criba()
   }
   else
   {
+    long begin = clock();
     // Llenamos el arreglo hasta el número indicado
     for (int i = 1; i <= n; i++)
     {
@@ -166,12 +167,17 @@ void criba()
         printf("%d ", i);
       }
     }
+    printf("\n");
+    long end = clock();
+    double t = end - begin;
+    t = t / ((double)CLOCKS_PER_SEC);
+    printf("\nTiempo transcurrido: %f segundos", t);
   }
 }
 
 int main()
 {
-  char str[256];
+  int opc = 0;
 
   while (1)
   {
@@ -180,9 +186,8 @@ int main()
     printf("\t1. Ordenamiento\n");
     printf("\t2. Criba de Eratóstenes\n");
     printf("\t3. Salir\n");
-    fgets(str, sizeof(str), stdin);
-    fflush(stdin);
-    switch (atoi(str))
+    scanf("%d", &opc);
+    switch (opc)
     {
     case 1:
       printf("\n\nOrdenamiento\n\n");
