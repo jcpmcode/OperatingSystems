@@ -1,5 +1,6 @@
 Práctica 1
 
+Compilación: gcc -o practica1 practica1.c -lpthread
 Ejecución: ./practica1
 
 Este programa desplegará un menú con las siguientes opciones:
@@ -15,7 +16,7 @@ A continuación se explica el funcionamiento de cada opción:
 1. Ordenamiento: 
 Pide un número entero al usuario. Con este número 'n' se genera un arreglo de 'n' elementos enteros aleatorio.
 Después de ello el programa automáticamente ordena dicho arreglo utilizando el método de la burbuja.
-Finalmente se despliega al usuario el arreglo ya ordenado y el tiempo transcurrido durante la ejecución de este módulo..
+Finalmente se despliega al usuario el arreglo ya ordenado y el tiempo transcurrido durante la ejecución de este módulo.
 Ejemplo:
 Ingresa el tamaño del arreglo a ordenar: 50
 
