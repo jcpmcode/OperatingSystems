@@ -134,7 +134,7 @@ void criba()
 {
   int n;
 
-  printf("Ingresa un valor: ");
+  printf("Ingresa el número hasta el cual deseas buscar: ");
   scanf("%d", &n);
   int primos[n + 1];
   if (n < 2)

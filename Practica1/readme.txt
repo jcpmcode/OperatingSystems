@@ -33,7 +33,7 @@ Tiempo transcurrido: 0.000276 segundos
 Se le pide un número entero 'n' al usuario y se utiliza este números para determinar todos los números primos que hay entre 0 y 'n'.
 Finalmente se muestra el tiempo transcurrido durante la ejecución de este módulo.
 Ejemplo:
-Ingresa un valor: 10
+Ingresa el número hasta el cual deseas buscar: 10
 Los números primos son: 
 2 3 5 7
 
